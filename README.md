@@ -214,7 +214,7 @@ Account management page: https://keycloak.example.com/realms/example/account
 
 ### Export/Import:
 
-From [Server Administration Guide. Ch 16. Export and Import](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/export-import.html)
+From [Server Administration Guide. Ch 16. Export and Import](http://www.keycloak.org/docs/latest/server_admin/index.html#_export_import)
 
 ```
 /srv/keycloak/bin/standalone.sh  -Dkeycloak.migration.action=export -Dkeycloak.migration.realmName=example -Dkeycloak.migration.provider=dir -Dkeycloak.migration.dir=/vagrant/shared/export
