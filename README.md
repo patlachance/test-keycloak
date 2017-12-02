@@ -16,10 +16,10 @@ The following information are based on the basic management tools without any cu
 No further explanation is required
 
 * Realm
-* [Role](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/roles.html)
-* [Client](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/clients.html): An object (service) that can require Keycloak to authenticate the user. Can be linked with SAML / OpenID Connect
-* [Identity Brokering / Identity Providers](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/identity-broker.html) (IdP): External authentication services such as Google and Facebook
-* [User Storage Federation](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/user-federation.html): External user DB such as LDAP
+* [Role](http://www.keycloak.org/docs/latest/server_admin/index.html#roles)
+* [Client](http://www.keycloak.org/docs/latest/server_admin/index.html#_clients): An object (service) that can require Keycloak to authenticate the user. Can be linked with SAML / OpenID Connect
+* [Identity Brokering / Identity Providers](http://www.keycloak.org/docs/latest/server_admin/index.html#_identity_broker) (IdP): External authentication services such as Google and Facebook
+* [User Storage Federation](http://www.keycloak.org/docs/latest/server_admin/index.html#_user-storage-federation): External user DB such as LDAP
 
 
 ### Customization
