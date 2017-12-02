@@ -104,7 +104,7 @@ No further explanation is required
 
 * You can set the rules for allowing / denying authentication with JS. See [Java ScriptEngine](https://docs.oracle.com/javase/7/docs/api/javax/script/ScriptEngine.html)
 * But very difficult to use (especially for debugging)
-* Example: see [Snippets/stripemaildomainfromusername.js](Snippets/Stripemaildomainfromusername.js).
+* Example: see [snippets/StripEmailDomainFromUsername.js](snippets/StripEmailDomainFromUsername.js).
 * Upon denyed, the error message cannot be selected directly, and you must choose from a few constants (http://www.keycloak.org/docs/javadocs/org/keycloak/authentication/AuthenticationFlowError.html).
 * Access to this service should not be denied. Only the authentication process flow can be customized, and the flow to the service can not be customized.
 
