@@ -9,37 +9,37 @@
 
 ## Please note
 
-The following information is used only as a basic management tool without customization. There may be a part of the failure.
+The following information are based on the basic management tools without any customization. There may be areas that we have not been able to check.
 
 ### Key Concepts
 
-The detailed description is omitted
+No further explanation is required
 
 * Realm
 * [Role](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/roles.html)
-* [Client](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/clients.html): A Keycloak object (service) that can require user authentication. Can be linked with SAML/OpenID Connect
+* [Client](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/clients.html): An object (service) that can require Keycloak to authenticate the user. Can be linked with SAML / OpenID Connect
 * [Identity Brokering / Identity Providers](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/identity-broker.html) (IdP): External authentication services such as Google and Facebook
 * [User Storage Federation](https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/user-federation.html): External user DB such as LDAP
 
 
-### User Settings
+### Customization
 
 * Identifier: UUID (immutable)
 * Username (aka User ID)
 * Password
-    - Temporary password: change force on Login if set
+    - Temporary password: Force change when logging on
 * Email
     - Email verification or not
-* First / Last name
-* Additional Properties
-    - Random key-value value
+* Last Name / First Name
+* Additional attributes
+    - Any key-value value.
 * Group
 * Role
-* Creation Date
+* Creation date and time
 * Account lockout settings
-* Temporary lockout setting (by login failure) 
+* Temporary lock setting (due to login failure)
 * OTP
-* After login to force action
+* Actions to force after login
     - OTP Settings
     - Change profile
     - Change Password
@@ -47,7 +47,7 @@ The detailed description is omitted
 * IdP Integration
     - IDP Side User identifier
     - Token!
-* Integration Service
+* Linked Service
 * Login Session
 
 
@@ -59,21 +59,21 @@ The detailed description is omitted
 
 ### Audit Log
 
-* User Login related "/administrator act is recorded in a structured form with detailed information.
-* No doubt, but after each service, the act is left behind.
+* User Login related/administrator acts are recorded in a structured form with detailed information.
+* Of course, there is no action left after each service.
 
-### Active Directory linkage
+### Active Directory Integration
 
 * LDAP -> Keycloak synchronization:
-    1. Automatically imported at initial login
-    2. Perform a full/incremental sync manually or regularly from the console
+    1. Imported automatically on first login
+    2. Full / incremental synchronization is performed manually or periodically on the console
 
 * Keycloak -> LDAP synchronization:
-    - Reflecting on LDAP when creating, modifying, and deleting accounts.
+    - Account creation, modification, and deletion are reflected in LDAP.
         - Self service!
-    - Group deletion is not reflected
+    - Deletion of group is not reflected
 
-* Keycloak also reflected in AD when password changed.
+* Keycloak also reflects AD when changing password.
 
 * Authentication method:
     - LDAP binding
@@ -82,15 +82,15 @@ The detailed description is omitted
 
 ### Google user authentication (and other Open ID Connect)
 
-* If you have an account with the same email, it will automatically be associated with the IdP after the AD password verification. Since Id/password or IdP mode both can log in.
+* Accounts with the same email will automatically be associated after the AD password verification. Both Id/password or IdP mode both can used to log in.
 * Create an AD account by specifying the ID, mail, last name, and password for the first login
     - No validation option for form input.
-    - You can preset or reject a value in a script
-* Multiple different IDP can be integrated
-* Authentication flow can be authenticated directly without user/password/IMAP4 selection form
-* Script allows only certain Google Apps domain users
-    1. Import the HD attribute into the IdP attribute importer.
-       Note: You will only be entered if you are creating a new account with IdP login.
+    - You can preset or deny a value in a script
+* Multiple IDPs can work together
+* Authentication flow can be authenticated directly without user/password/IDP selection form
+* Only specific Google Apps domain users are allowed in the script
+    1. import attribute hd with IdP Attribute Importer.
+       Note: This is only required if you are creating a new account with an IdP login.
     2. Comparing the properties imported from a script to 1
 
 ### Multi factor authentication
@@ -98,41 +98,41 @@ The detailed description is omitted
 * [HOTP](https://tools.ietf.org/html/rfc4226) - Counter/Time mode support
     - hash algorithm, various parameters can be set
     - Works well in Google authenticator
-* Can be forced to use OTP regardless of authentication method
+* OTP can be enforced regardless of authentication method
 
 ### Script-based Authentication
 
-* JS can be set to allow/deny authentication rules. See [Java ScriptEngine](https://docs.oracle.com/javase/7/docs/api/javax/script/ScriptEngine.html)
-* It is very difficult to use (especially for debugging)
+* You can set the rules for allowing / denying authentication with JS. See [Java ScriptEngine](https://docs.oracle.com/javase/7/docs/api/javax/script/ScriptEngine.html)
+* But very difficult to use (especially for debugging)
 * Example: see [Snippets/stripemaildomainfromusername.js](Snippets/Stripemaildomainfromusername.js).
-* Upon rejection, the error message cannot be selected directly, and you must choose from a few constants (http://www.keycloak.org/docs/javadocs/org/keycloak/authentication/AuthenticationFlowError.html).
-* You should not deny access to this service. You can customize the flow of the certification process only, and the flow beyond the service is not customizable.
+* Upon denyed, the error message cannot be selected directly, and you must choose from a few constants (http://www.keycloak.org/docs/javadocs/org/keycloak/authentication/AuthenticationFlowError.html).
+* Access to this service should not be denied. Only the authentication process flow can be customized, and the flow to the service can not be customized.
 
 ### UI Customization
 
-* offers themes, localization features, etc.
+* Provides themes, localization features, etc.
     - except Korean
-* The change in management tools is the title of the top of the login page... Warning Banner is not.
+* In the management tool, the part that can be changed is the title at the top of the login page.
 * There are terms and conditions, but no edit page.
 
-### 
+### I have not tried it.
 
 * Send mail
     - Check your email address
     - Forgot Password
-* OpenID Connect Client auhz function
-    - the permission setting for the URL path is likely to be possible.
+* OpenID Connect Client AuthZ feature
+    - Permission can be set by URL path
 * Clustering
 * TODO: Keycloak LDAP bind account Administrator-> change to service account
 * [Keycloak Security Proxy](https://keycloak.gitbooks.io/server-installation-and-configuration/content/v/2.2/topics/proxy.html)
     - Reverse proxy
-    - The existing application seems to be able to be certified without modification
+    - The existing application seems to be able to be attached without modification
 * Kerberos/SPNEGO SSO
 
 
 ### Issue
 
-* Admin Login Unlocked very soon
+* Administrator login is released very quickly
 
 * `LOAD_GROUPS_BY_MEMBER_ATTRIBUTE_RECURSIVELY` of Keycloak User Groups Retrieve Strategy does not work properly with Samba 4.3 set as example [Issue] (https://bugzilla.samba.org/show_bug.cgi?id=10493)
 
