@@ -105,7 +105,7 @@ No further explanation is required
 * You can set the rules for allowing / denying authentication with JS. See [Java ScriptEngine](https://docs.oracle.com/javase/7/docs/api/javax/script/ScriptEngine.html)
 * But very difficult to use (especially for debugging)
 * Example: see [snippets/StripEmailDomainFromUsername.js](snippets/StripEmailDomainFromUsername.js).
-* Upon denyed, the error message cannot be selected directly, and you must choose from a few constants (http://www.keycloak.org/docs/javadocs/org/keycloak/authentication/AuthenticationFlowError.html).
+* Upon denyed, the error message cannot be selected directly, and you must choose from a few constants (http://www.keycloak.org/docs-api/3.4/javadocs/org/keycloak/authentication/AuthenticationFlowError.html)
 * Access to this service should not be denied. Only the authentication process flow can be customized, and the flow to the service can not be customized.
 
 ### UI Customization
@@ -124,7 +124,7 @@ No further explanation is required
     - Permission can be set by URL path
 * Clustering
 * TODO: Keycloak LDAP bind account Administrator-> change to service account
-* [Keycloak Security Proxy](https://keycloak.gitbooks.io/server-installation-and-configuration/content/v/2.2/topics/proxy.html)
+* [Keycloak Security Proxy](http://www.keycloak.org/docs/latest/server_installation/index.html#_setting-up-a-load-balancer-or-proxy)
     - Reverse proxy
     - The existing application seems to be able to be attached without modification
 * Kerberos/SPNEGO SSO
@@ -139,7 +139,7 @@ No further explanation is required
 * Provisioning Failure
     - Provisioning sometimes fails due to various issues such as network and timing. Try to reprovision the VM using vagrant, or create a new one.
 * Problems connecting to VM with SSH key in Vagrant 1.8.5 [vagrant issue #7610](https://github.com/mitchellh/vagrant/pull/7611)
-    - in `/opt/vagrant/embedded/gems/gems/vagrant-1.8.5/plugins/guests/linux/cap/public_key.rb`, [patch](https://github.com/mitchellh/vagrant/pull/7611/files#diff-13c7ed80ab881de1369e3b06c66745e8R57)
+    - [patch](https://github.com/mitchellh/vagrant/pull/7611/files#diff-13c7ed80ab881de1369e3b06c66745e8R57) for `/opt/vagrant/embedded/gems/gems/vagrant-1.8.5/plugins/guests/linux/cap/public_key.rb`
 
 
 ## Local setting
@@ -207,7 +207,7 @@ Account management page: https://keycloak.example.com/realms/example/account
 
 * URL: https://ci.example.com
 
-* [SAML Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SAML+Plugin)으로 연동.
+* [SAML Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SAML+Plugin)
 * Grant permissions for each group with Jenkins' own settings
 
 ## Etc
